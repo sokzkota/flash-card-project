@@ -1,0 +1,33 @@
+import pandas as pd
+import random
+
+file = pd.read_csv("french_words.csv").to_dict(orient="records")
+stilltolearn = []
+known = []
+
+for _ in range(55):
+    rand_pick = random.choice(file)
+    known.append(rand_pick)
+print(rand_pick["English"])
+
+print(len(known))
+
+# for word in file:
+#     if word not in known:
+#         stilltolearn.append(word)
+
+stilltolearn =  [word for word in file if word not in known]
+print(stilltolearn)
+df = pd.DataFrame.from_dict(stilltolearn)
+pd.DataFrame.to_csv(df, "stilltolearn.csv", index=None)
+
+# newvalue for value in
+
+
+   canvas.itemconfig(timer_text, text="00:00")
+
+   # image on the window
+canvas = Canvas(width=200, height=224, bg=YELLOW, highlightbackground=YELLOW)
+tomato_img = PhotoImage(file="tomato.png")
+canvas.create_image(102, 100, image=tomato_img)
+timer_text = canvas.create_text(102, 120, text="00:00", font=(FONT_NAME, 25, "bold"), fill="white")
