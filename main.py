@@ -51,7 +51,10 @@ def new_flashcard():
 
 
     timer_cancel()
-    os.remove("file.mp3")
+    try:
+        os.remove("file.mp3")
+    except FileNotFoundError:
+        pass
     flash_card = random.choice(file)
     inv_flash_card = {value: key for key, value in flash_card.items()}
     canvas.itemconfig(card_image, image=card_image_front)
